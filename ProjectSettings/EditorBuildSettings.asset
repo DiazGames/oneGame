@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/CorgiEngine/ThirdParty/MMTools/SceneLoading/LoadingScreen.unity
-    guid: 888394d52616e5e42b3b54c3f2bbd3eb
+    path: Assets/Scenes/App.unity
+    guid: f193c91a58b9f4b34b6173288772f062
   - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: bde7a80d65e7b47a0b4b60ff99fe6110
@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameWin.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/CorgiEngine/ThirdParty/MMTools/SceneLoading/LoadingScreen.unity
+    guid: 888394d52616e5e42b3b54c3f2bbd3eb
   m_configObjects: {}

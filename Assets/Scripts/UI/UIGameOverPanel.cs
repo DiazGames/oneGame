@@ -16,7 +16,7 @@ namespace oneGame
     using System.Linq;
     using UnityEngine;
     using UnityEngine.UI;
-    
+    using QFramework;
     
     public class UIGameOverPanelData : QFramework.UIPanelData
     {
@@ -37,11 +37,17 @@ namespace oneGame
 
         protected override void ProcessMsg(int eventId, QFramework.QMsg msg)
         {
-            throw new System.NotImplementedException ();
         }
-        
 
-        
+        protected override void RegisterUIEvent()
+        {
+            BtnBackHome.onClick.AddListener(() =>
+            {
+                CloseSelf();
+                UIMgr.OpenPanel<UIHomePanel>();
+            });
+        }
+
         protected override void OnOpen(QFramework.IUIData uiData)
         {
         }

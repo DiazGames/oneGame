@@ -52,13 +52,13 @@ namespace oneGame
         {
             if (scene.name == "GameWin")
             {
-                //Debug.Log("GameWin 死亡次数 ： " + mData.DeathCount);
+                CloseSelf();
                 UIMgr.OpenPanel<UIGameOverPanel>(new UIGameOverPanelData()
                 {
                     DeathCountCurrent = mData.DeathCount
                 });
 
-                CloseSelf();
+
             }
         }
 

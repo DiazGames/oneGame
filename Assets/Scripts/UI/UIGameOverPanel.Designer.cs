@@ -29,6 +29,9 @@ namespace oneGame
         [SerializeField()]
         public Text TxtDeathCountMin;
         
+        [SerializeField()]
+        public Button BtnBackHome;
+        
         private UIGameOverPanelData mPrivateData = null;
         
         public UIGameOverPanelData mData
@@ -48,6 +51,7 @@ namespace oneGame
         {
             TxtDeathCountCurrent = null;
             TxtDeathCountMin = null;
+            BtnBackHome = null;
             mData = null;
         }
     }
