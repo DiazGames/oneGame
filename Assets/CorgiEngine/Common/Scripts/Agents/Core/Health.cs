@@ -267,6 +267,7 @@ namespace MoreMountains.CorgiEngine
 		/// </summary>
 		public virtual void Kill()
 		{
+            Debug.Log("death in Health！");
 			// we make our handheld device vibrate
 			if (VibrateOnDeath)
 			{
