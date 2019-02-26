@@ -19,6 +19,7 @@ namespace oneGame
     using UnityEngine.SceneManagement;
     using MoreMountains.Tools;
     using MoreMountains.CorgiEngine;
+    using QFramework;
 
     public class UIGamePanelData : QFramework.UIPanelData
     {
@@ -51,7 +52,13 @@ namespace oneGame
         {
             if (scene.name == "GameWin")
             {
-                Debug.Log("GameWin 死亡次数 ： " + mData.DeathCount);
+                //Debug.Log("GameWin 死亡次数 ： " + mData.DeathCount);
+                UIMgr.OpenPanel<UIGameOverPanel>(new UIGameOverPanelData()
+                {
+                    DeathCountCurrent = mData.DeathCount
+                });
+
+                CloseSelf();
             }
         }
 
