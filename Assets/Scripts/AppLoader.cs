@@ -16,10 +16,25 @@ namespace oneGame
         }
 
         // Use this for initialization
-        void Start()
+        private void Start()
         {
             UIMgr.OpenPanel<UIHomePanel>();
         }
 
+    }
+
+    public class GameData
+    {
+        public static int DeathCountMin
+        {
+            get
+            {
+                return PlayerPrefs.GetInt("DEATH_COUNT_MIN", int.MaxValue);
+            }
+            set
+            {
+                PlayerPrefs.SetInt("DEATH_COUNT_MIN", value);
+            }
+        }
     }
 }

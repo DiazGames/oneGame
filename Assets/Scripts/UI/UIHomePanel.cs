@@ -28,6 +28,10 @@ namespace oneGame
         {
             mData = uiData as UIHomePanelData ?? new UIHomePanelData();
             // please add init code here
+
+            TxtDeathCountMin.text = string.Format("Death Count Record : {0}", 
+            GameData.DeathCountMin == int.MaxValue ? "None" : GameData.DeathCountMin.ToString());
+
         }
 
         protected override void ProcessMsg(int eventId, QFramework.QMsg msg)

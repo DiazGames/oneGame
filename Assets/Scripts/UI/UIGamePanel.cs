@@ -57,8 +57,14 @@ namespace oneGame
                 {
                     DeathCountCurrent = mData.DeathCount
                 });
-
-
+            }
+            else if (scene.name.StartsWith("Level"))
+            {
+                TxtLevelName.text = scene.name;
+            }
+            else
+            {
+                TxtLevelName.text = string.Empty;
             }
         }
 
@@ -95,7 +101,7 @@ namespace oneGame
             if(eventType.EventType == CorgiEngineEventTypes.PlayerDeath)
             {
                 mData.DeathCount++;
-                TxtDeathCount.text = string.Format("死亡次数：{0}", mData.DeathCount);
+                TxtDeathCount.text = string.Format("Death Count : {0}", mData.DeathCount);
             }
         }
 

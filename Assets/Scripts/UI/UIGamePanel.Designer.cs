@@ -26,6 +26,9 @@ namespace oneGame
         [SerializeField()]
         public Text TxtDeathCount;
         
+        [SerializeField()]
+        public Text TxtLevelName;
+        
         private UIGamePanelData mPrivateData = null;
         
         public UIGamePanelData mData
@@ -44,6 +47,7 @@ namespace oneGame
         protected override void ClearUIComponents()
         {
             TxtDeathCount = null;
+            TxtLevelName = null;
             mData = null;
         }
     }

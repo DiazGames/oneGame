@@ -30,8 +30,10 @@ namespace oneGame
             mData = uiData as UIGameOverPanelData ?? new UIGameOverPanelData();
             // please add init code here
 
-            TxtDeathCountCurrent.text = string.Format("当前通关死亡次数:{0}", mData.DeathCountCurrent);
-            TxtDeathCountMin.text = string.Format("最小通关死亡次数:{0}", mData.DeathCountCurrent);
+            GameData.DeathCountMin = GameData.DeathCountMin >= mData.DeathCountCurrent ? mData.DeathCountCurrent : GameData.DeathCountMin;
+
+            TxtDeathCountCurrent.text = string.Format("Death Count : {0}", mData.DeathCountCurrent);
+            TxtDeathCountMin.text = string.Format("Death Count Record : {0}", GameData.DeathCountMin);
 
         }
 

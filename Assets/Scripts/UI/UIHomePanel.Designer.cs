@@ -24,6 +24,9 @@ namespace oneGame
         public const string NAME = "UIHomePanel";
         
         [SerializeField()]
+        public Text TxtDeathCountMin;
+        
+        [SerializeField()]
         public Button BtnStartGame;
         
         private UIHomePanelData mPrivateData = null;
@@ -43,6 +46,7 @@ namespace oneGame
         
         protected override void ClearUIComponents()
         {
+            TxtDeathCountMin = null;
             BtnStartGame = null;
             mData = null;
         }
