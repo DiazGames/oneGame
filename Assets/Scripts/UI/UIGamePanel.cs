@@ -36,6 +36,7 @@ namespace oneGame
     
     public partial class UIGamePanel : QFramework.UIPanel, MMEventListener<CorgiEngineEvent>
     {
+
         protected override void OnInit(QFramework.IUIData uiData)
         {
             mData = uiData as UIGamePanelData ?? new UIGamePanelData();
@@ -46,6 +47,18 @@ namespace oneGame
             this.MMEventStartListening<CorgiEngineEvent>();
 
             SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        public void OnMMEvent(CorgiEngineEvent eventType)
+        {
+            if (eventType.EventType == CorgiEngineEventTypes.PlayerDeath)
+            {
+                mData.DeathCount++;
+                // 更新UI
+                TxtDeathCount.text = string.Format("Death Count : {0}", mData.DeathCount);
+                // 播放死亡的声音
+                this.SendMsg(new AudioSoundMsg(QAssetBundle.Sounds.HIT));
+            }
         }
 
         void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -94,15 +107,6 @@ namespace oneGame
         {
             this.MMEventStopListening<CorgiEngineEvent>();
             SceneManager.sceneLoaded -= OnSceneLoaded;
-        }
-
-        public void OnMMEvent(CorgiEngineEvent eventType)
-        {
-            if(eventType.EventType == CorgiEngineEventTypes.PlayerDeath)
-            {
-                mData.DeathCount++;
-                TxtDeathCount.text = string.Format("Death Count : {0}", mData.DeathCount);
-            }
         }
 
 
