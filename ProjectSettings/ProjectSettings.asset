@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 15
-  productGUID: 00000000000000000000000000000000
+  productGUID: 1aeb2f8e07430497eb25e7fb8bc690e7
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 0
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: Diaz
   productName: oneGame
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -118,7 +118,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 5.0
+  bundleVersion: 0.0.4
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -153,11 +153,12 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.reuno.corgienginetechdemo
-    Standalone: com.moremountains.corgiengine
+    Standalone: com.Diaz.oneGame
     Tizen: com.reuno.corgienginetechdemo
     iOS: com.reuno.corgienginetechdemo
     tvOS: com.reuno.corgienginetechdemo
   buildNumber:
+    Standalone: 1
     iOS: 0
   AndroidBundleVersionCode: 2018062301
   AndroidMinSdkVersion: 19

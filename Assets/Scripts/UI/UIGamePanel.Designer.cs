@@ -29,6 +29,12 @@ namespace oneGame
         [SerializeField()]
         public Text TxtLevelName;
         
+        [SerializeField()]
+        public Button BtnKeyboardHelp;
+        
+        [SerializeField()]
+        public Text TxtKeyboardHelp;
+        
         private UIGamePanelData mPrivateData = null;
         
         public UIGamePanelData mData
@@ -48,6 +54,8 @@ namespace oneGame
         {
             TxtDeathCount = null;
             TxtLevelName = null;
+            BtnKeyboardHelp = null;
+            TxtKeyboardHelp = null;
             mData = null;
         }
     }

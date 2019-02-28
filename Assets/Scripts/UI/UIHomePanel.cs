@@ -32,6 +32,8 @@ namespace oneGame
             TxtDeathCountMin.text = string.Format("Death Count Record : {0}", 
             GameData.DeathCountMin == int.MaxValue ? "None" : GameData.DeathCountMin.ToString());
 
+            TxtVersion.text = "v" + Application.version;
+
         }
 
         protected override void ProcessMsg(int eventId, QFramework.QMsg msg)
@@ -42,12 +44,14 @@ namespace oneGame
         {
             BtnStartGame.onClick.AddListener(() =>
             {
-                UIMgr.OpenPanel<UIGamePanel>(new UIGamePanelData() {
-                    DeathCount = 0,
-                    InitLevelName = "Level1"
-                });
+                UIMgr.OpenPanel<UIStoryPanel>();
 
                 CloseSelf();
+            });
+
+            BtnAbout.onClick.AddListener(() =>
+            {
+                UIMgr.OpenPanel<UIAboutPanel>(UILevel.PopUI);
             });
         }
 

@@ -1608,7 +1608,7 @@
       "Type": 3,
       "AccessRight": 0,
       "VersionNumber": 3,
-      "Installed": false
+      "Installed": true
     },
     {
       "Name": "PlatformRunner",

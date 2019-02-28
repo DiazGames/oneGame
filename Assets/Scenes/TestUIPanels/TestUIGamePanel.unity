@@ -384,6 +384,8 @@ MonoBehaviour:
   mSubPanelInfos: []
   TxtDeathCount: {fileID: 645664324}
   TxtLevelName: {fileID: 0}
+  BtnKeyboardHelp: {fileID: 0}
+  TxtKeyboardHelp: {fileID: 0}
 --- !u!222 &1911707112
 CanvasRenderer:
   m_ObjectHideFlags: 0

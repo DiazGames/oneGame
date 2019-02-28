@@ -20,6 +20,7 @@ namespace oneGame
     using MoreMountains.Tools;
     using MoreMountains.CorgiEngine;
     using QFramework;
+    using DG.Tweening;
 
     public class UIGamePanelData : QFramework.UIPanelData
     {
@@ -41,12 +42,13 @@ namespace oneGame
         {
             mData = uiData as UIGamePanelData ?? new UIGamePanelData();
 
-            // please add init code here
+            SceneManager.sceneLoaded += OnSceneLoaded;
             SceneManager.LoadScene(mData.InitLevelName);
 
             this.MMEventStartListening<CorgiEngineEvent>();
 
-            SceneManager.sceneLoaded += OnSceneLoaded;
+            TxtKeyboardHelp.Hide();
+
         }
 
         public void OnMMEvent(CorgiEngineEvent eventType)
@@ -91,6 +93,15 @@ namespace oneGame
             else if (scene.name.StartsWith("Level"))
             {
                 TxtLevelName.text = scene.name;
+
+                if (scene.name == "Level1")
+                {
+                    if (GameData.FirstTimeEnterLevel1)
+                    {
+                        ShowTxtKeyboardHelp();
+                        GameData.FirstTimeEnterLevel1 = false;
+                    }
+                }
             }
             else
             {
@@ -105,7 +116,10 @@ namespace oneGame
 
         protected override void RegisterUIEvent()
         {
-
+            BtnKeyboardHelp.onClick.AddListener(() =>
+            {
+                ShowTxtKeyboardHelp();
+            });
         }
 
         protected override void OnOpen(QFramework.IUIData uiData)
@@ -126,6 +140,32 @@ namespace oneGame
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
+        Sequence mSequence;
 
+        /// <summary>
+        /// 显示按键提示框
+        /// </summary>
+        private void ShowTxtKeyboardHelp()
+        {
+            if (mSequence != null)
+            {
+                mSequence.Kill();
+                mSequence = null;
+            }
+
+            TxtKeyboardHelp.DOKill();
+
+            TxtKeyboardHelp.Show();
+            TxtKeyboardHelp.ColorAlpha(1.0f);
+
+            mSequence = DOTween.Sequence()
+                .Append(TxtKeyboardHelp.DOFade(1.0f, 5.0f))
+                .Append(TxtKeyboardHelp.DOFade(0.0f, 1.0f))
+                .OnComplete(() =>
+                {
+                    TxtKeyboardHelp.Hide();
+                    mSequence = null;
+                });
+        }
     }
 }
