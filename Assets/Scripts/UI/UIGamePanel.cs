@@ -31,7 +31,7 @@ namespace oneGame
         /// <summary>
         /// 打开 GamePanel 的初始关卡
         /// </summary>
-        public string InitLevelName = "Level8";
+        public string InitLevelName = "LevelTest";
     }
     
     public partial class UIGamePanel : QFramework.UIPanel, MMEventListener<CorgiEngineEvent>
@@ -58,6 +58,23 @@ namespace oneGame
                 TxtDeathCount.text = string.Format("Death Count : {0}", mData.DeathCount);
                 // 播放死亡的声音
                 this.SendMsg(new AudioSoundMsg(QAssetBundle.Sounds.HIT));
+            }
+            else if (eventType.EventType == CorgiEngineEventTypes.Pause)
+            {
+                var pausePanel = UIMgr.GetPanel<UIGamePausePanel>();
+                if(pausePanel)
+                {
+                    UIMgr.ClosePanel<UIGamePausePanel>();
+                }
+                else
+                {
+                    UIMgr.OpenPanel<UIGamePausePanel>(UILevel.PopUI);
+                }
+
+            }
+            else if (eventType.EventType == CorgiEngineEventTypes.UnPause)
+            {
+                UIMgr.ClosePanel<UIGamePausePanel>();
             }
         }
 
