@@ -216,8 +216,8 @@ MonoBehaviour:
   OutroFadeDuration: 1
   RespawnDelay: 2
   LevelBounds:
-    m_Center: {x: -1.5, y: 0, z: 0}
-    m_Extent: {x: 23, y: 11.45, z: 5}
+    m_Center: {x: -2.04, y: 2.2, z: 0}
+    m_Extent: {x: 12, y: 15.1, z: 5}
   OneWayLevelMode: 0
   NoGoingBackColliderSize: {x: 5, y: 5}
   NoGoingBackThreshold: 5
@@ -588,7 +588,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 443842, guid: 06710df06f403c948b4d2a9357fa5e8a,
     type: 2}
   m_PrefabInternal: {fileID: 558607040}
---- !u!1001 &723148783
+--- !u!1001 &768898802
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -597,7 +597,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: c894311a606754482bdf79c60e5886e9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -31.58
+      value: -27.21
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c894311a606754482bdf79c60e5886e9, type: 2}
       propertyPath: m_LocalPosition.y
@@ -630,11 +630,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c894311a606754482bdf79c60e5886e9, type: 2}
   m_IsPrefabAsset: 0
---- !u!4 &723148784 stripped
+--- !u!4 &768898803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: c894311a606754482bdf79c60e5886e9,
     type: 2}
-  m_PrefabInternal: {fileID: 723148783}
+  m_PrefabInternal: {fileID: 768898802}
 --- !u!1001 &780624527
 Prefab:
   m_ObjectHideFlags: 0
@@ -1092,7 +1092,7 @@ Transform:
   - {fileID: 1494325979}
   - {fileID: 1267461638}
   - {fileID: 1505988468}
-  - {fileID: 723148784}
+  - {fileID: 768898803}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

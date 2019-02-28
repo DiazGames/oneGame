@@ -1,5 +1,7 @@
 using UnityEngine;
 using QFramework;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 namespace oneGame
 {
@@ -35,6 +37,38 @@ namespace oneGame
             {
                 PlayerPrefs.SetInt("DEATH_COUNT_MIN", value);
             }
+        }
+    }
+
+    public class LevelConfig
+    {
+        private static List<string> mLevelNamesOrder = new List<string>
+        {
+            "Level1",
+            "Level2",
+            "Level3",
+            "Level4",
+            "Level5",
+            "Level6",
+            "Level7",
+            "Level8",
+            "Level9",
+            "Level10",
+            "Level11",
+            "Level12",
+            "Level13",
+            "Level14",
+            "Level15",
+            "GameWin"
+        };
+
+        public static string GetNextLevelName()
+        {
+            string curLevelName = SceneManager.GetActiveScene().name;
+            int curLevelIndex = mLevelNamesOrder.IndexOf(curLevelName);
+            curLevelIndex++;
+           
+            return mLevelNamesOrder[curLevelIndex];
         }
     }
 }
