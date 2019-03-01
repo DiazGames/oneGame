@@ -16,13 +16,13 @@ namespace oneGame
     using System.Linq;
     using UnityEngine;
     using UnityEngine.UI;
-    using QFramework;
     
-    public class UIAboutPanelData : QFramework.UIPanelData
+    
+    public class UITrainModePanelData : QFramework.UIPanelData
     {
     }
     
-    public partial class UIAboutPanel : QFramework.UIPanel
+    public partial class UITrainModePanel : QFramework.UIPanel
     {
         
         protected override void ProcessMsg(int eventId, QFramework.QMsg msg)
@@ -32,19 +32,10 @@ namespace oneGame
         
         protected override void OnInit(QFramework.IUIData uiData)
         {
-            mData = uiData as UIAboutPanelData ?? new UIAboutPanelData();
+            mData = uiData as UITrainModePanelData ?? new UITrainModePanelData();
             // please add init code here
         }
-
-        protected override void RegisterUIEvent()
-        {
-            BtnBack.onClick.AddListener(() =>
-            {
-                SendMsg(new AudioSoundMsg("click"));
-                CloseSelf();
-            });
-        }
-
+        
         protected override void OnOpen(QFramework.IUIData uiData)
         {
         }

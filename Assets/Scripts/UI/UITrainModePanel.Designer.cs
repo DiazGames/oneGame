@@ -18,30 +18,18 @@ namespace oneGame
     using UnityEngine.UI;
     
     
-    public partial class UIGamePausePanel
+    public partial class UITrainModePanel
     {
         
-        public const string NAME = "UIGamePausePanel";
+        public const string NAME = "UITrainModePanel";
         
-        [SerializeField()]
-        public Image PauseSplash;
+        private UITrainModePanelData mPrivateData = null;
         
-        [SerializeField()]
-        public Animator ButtonResume;
-        
-        [SerializeField()]
-        public Animator ButtonRestart;
-        
-        [SerializeField()]
-        public Animator ButtonBackHome;
-        
-        private UIGamePausePanelData mPrivateData = null;
-        
-        public UIGamePausePanelData mData
+        public UITrainModePanelData mData
         {
             get
             {
-                return mPrivateData ?? (mPrivateData = new UIGamePausePanelData());
+                return mPrivateData ?? (mPrivateData = new UITrainModePanelData());
             }
             set
             {
@@ -52,10 +40,6 @@ namespace oneGame
         
         protected override void ClearUIComponents()
         {
-            PauseSplash = null;
-            ButtonResume = null;
-            ButtonRestart = null;
-            ButtonBackHome = null;
             mData = null;
         }
     }

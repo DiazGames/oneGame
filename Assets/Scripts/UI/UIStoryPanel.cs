@@ -18,6 +18,7 @@ namespace oneGame
     using UnityEngine.UI;
     using DG.Tweening;
     using QFramework;
+    using UniRx;
 
     public class UIStoryPanelData : QFramework.UIPanelData
     {
@@ -43,12 +44,27 @@ namespace oneGame
                 {
                     OpenGamePanel();
                 });
+
+            // 点击屏幕显示所有文字
+            Observable.EveryUpdate()
+                .Where(_ => 
+                Input.GetMouseButtonUp(0) || 
+                Input.GetKey(KeyCode.H) || 
+                Input.GetKey(KeyCode.Return) || 
+                Input.GetKey(KeyCode.Space))
+                .Subscribe(_ =>
+                {
+                    TxtStoryContent.DOKill();
+                    TxtStoryContent.text = text;
+                    BtnSkip.Show();
+                }).AddTo(this);
         }
 
         protected override void RegisterUIEvent()
         {
             BtnSkip.onClick.AddListener(() =>
             {
+                SendMsg(new AudioSoundMsg("click"));
                 TxtStoryContent.DOKill();
 
                 OpenGamePanel();
@@ -73,10 +89,15 @@ namespace oneGame
 
         private void OpenGamePanel()
         {
-            CloseSelf();
-            UIMgr.OpenPanel<UIGamePanel>(new UIGamePanelData()
+            //CloseSelf();
+            //UIMgr.OpenPanel<UIGamePanel>(new UIGamePanelData()
+            //{
+            //    //DeathCount = 0,
+            //    InitLevelName = "Level1"
+            //});
+
+            this.DoTransition<UIGamePanel>(new FadeInOut(), uiData: new UIGamePanelData()
             {
-                //DeathCount = 0,
                 InitLevelName = "Level1"
             });
         }

@@ -45,6 +45,7 @@ namespace oneGame
         {
             BtnBackHome.onClick.AddListener(() =>
             {
+                SendMsg(new AudioSoundMsg("click"));
                 CloseSelf();
                 UIMgr.OpenPanel<UIHomePanel>();
             });

@@ -118,6 +118,7 @@ namespace oneGame
         {
             BtnKeyboardHelp.onClick.AddListener(() =>
             {
+                SendMsg(new AudioSoundMsg("click"));
                 ShowTxtKeyboardHelp();
             });
         }

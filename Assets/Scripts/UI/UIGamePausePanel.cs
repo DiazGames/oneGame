@@ -47,8 +47,21 @@ namespace oneGame
                 .ButtonPressedFirstTime
                 .AddListener(() =>
                 {
+                    SendMsg(new AudioSoundMsg("click"));
                     UIMgr.ClosePanel<UIGamePanel>();
                     CloseSelf();
+                });
+            ButtonResume.transform.Find("Container/Background").GetComponent<MMTouchButton>()
+                .ButtonPressedFirstTime
+                .AddListener(() =>
+                {
+                    SendMsg(new AudioSoundMsg("click"));
+                });
+            ButtonRestart.transform.Find("Container/Background").GetComponent<MMTouchButton>()
+                .ButtonPressedFirstTime
+                .AddListener(() =>
+                {
+                    SendMsg(new AudioSoundMsg("click"));
                 });
         }
 

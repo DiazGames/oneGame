@@ -44,6 +44,7 @@ namespace oneGame
         {
             BtnStartGame.onClick.AddListener(() =>
             {
+                SendMsg(new AudioSoundMsg("click"));
                 UIMgr.OpenPanel<UIStoryPanel>();
 
                 CloseSelf();
@@ -51,6 +52,7 @@ namespace oneGame
 
             BtnAbout.onClick.AddListener(() =>
             {
+                SendMsg(new AudioSoundMsg("click"));
                 UIMgr.OpenPanel<UIAboutPanel>(UILevel.PopUI);
             });
         }
