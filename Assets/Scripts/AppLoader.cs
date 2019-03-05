@@ -13,7 +13,9 @@ namespace oneGame
         private void Awake()
         {
             ResMgr.Init();
-            UIMgr.SetResolution(1024, 768, 1.0f);
+
+            //UIMgr.SetResolution(1024, 768, 1.0f);
+            UIMgr.SetResolution(Screen.width, Screen.height, 1.0f);
             DontDestroyOnLoad(UIManager.Instance);
         }
 
@@ -50,9 +52,21 @@ namespace oneGame
                 PlayerPrefs.SetInt("FIRST_TIME_ENTER_LEVEL_1", value ? 1 : 0);
             }
         }
+
+        public static string CurLevelName
+        {
+            get
+            {
+                return PlayerPrefs.GetString("CUR_LEVEL_NAME", "Level1");
+            }
+            set
+            {
+                PlayerPrefs.SetString("CUR_LEVEL_NAME", value);
+            }
+        }
     }
 
-    public class LevelConfig
+    public static class LevelConfig
     {
         private static List<string> mLevelNamesOrder = new List<string>
         {
@@ -75,13 +89,28 @@ namespace oneGame
             "GameWin"
         };
 
+        public static List<string> LevelNamesOrder
+        {
+            get
+            {
+                return mLevelNamesOrder;
+            }
+        }
+
+        public static int CurLevelIndex(string curLevelName)
+        {
+            return mLevelNamesOrder.IndexOf(curLevelName);
+        }
+
         public static string GetNextLevelName()
         {
-            string curLevelName = SceneManager.GetActiveScene().name;
-            int curLevelIndex = mLevelNamesOrder.IndexOf(curLevelName);
+            int curLevelIndex = CurLevelIndex(SceneManager.GetActiveScene().name);
             curLevelIndex++;
-           
-            return mLevelNamesOrder[curLevelIndex];
+
+            string nextLevelName = mLevelNamesOrder[curLevelIndex];
+            GameData.CurLevelName = curLevelIndex == mLevelNamesOrder.Count - 1 ? mLevelNamesOrder[0] : nextLevelName;
+
+            return nextLevelName;
         }
     }
 }

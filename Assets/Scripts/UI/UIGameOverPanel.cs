@@ -10,14 +10,8 @@
 
 namespace oneGame
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
-    using UnityEngine;
-    using UnityEngine.UI;
     using QFramework;
-    
+
     public class UIGameOverPanelData : QFramework.UIPanelData
     {
         public int DeathCountCurrent = 10;

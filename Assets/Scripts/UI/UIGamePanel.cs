@@ -10,17 +10,13 @@
 
 namespace oneGame
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
-    using UnityEngine;
-    using UnityEngine.UI;
     using UnityEngine.SceneManagement;
     using MoreMountains.Tools;
     using MoreMountains.CorgiEngine;
     using QFramework;
     using DG.Tweening;
+    using UnityEngine.UI;
+    using UnityEngine;
 
     public class UIGamePanelData : QFramework.UIPanelData
     {
@@ -33,14 +29,20 @@ namespace oneGame
         /// 打开 GamePanel 的初始关卡
         /// </summary>
         public string InitLevelName = "LevelTest";
+
+        // 默认普通模式
+        public GameMode Mode = GameMode.ModeNormal;
     }
-    
+
+
     public partial class UIGamePanel : QFramework.UIPanel, MMEventListener<CorgiEngineEvent>
     {
 
         protected override void OnInit(QFramework.IUIData uiData)
         {
             mData = uiData as UIGamePanelData ?? new UIGamePanelData();
+
+            GameModeLogic.Mode = mData.Mode;
 
             SceneManager.sceneLoaded += OnSceneLoaded;
             SceneManager.LoadScene(mData.InitLevelName);
@@ -66,16 +68,19 @@ namespace oneGame
                 var pausePanel = UIMgr.GetPanel<UIGamePausePanel>();
                 if(pausePanel)
                 {
+                    //BtnPause.image.sprite = Resources.Load<Sprite>("Art/Images/btn_pause");
                     UIMgr.ClosePanel<UIGamePausePanel>();
                 }
                 else
                 {
+                    //BtnPause.image.sprite = Resources.Load<Sprite>("Art/Images/btn_restart");
                     UIMgr.OpenPanel<UIGamePausePanel>(UILevel.PopUI);
                 }
 
             }
             else if (eventType.EventType == CorgiEngineEventTypes.UnPause)
             {
+                //BtnPause.image.sprite = Resources.Load<Sprite>("Art/Images/btn_pause");
                 UIMgr.ClosePanel<UIGamePausePanel>();
             }
         }
@@ -121,6 +126,12 @@ namespace oneGame
                 SendMsg(new AudioSoundMsg("click"));
                 ShowTxtKeyboardHelp();
             });
+            BtnPause.onClick.AddListener(() =>
+            {
+                CorgiEngineEvent.Trigger(CorgiEngineEventTypes.Pause);
+            });
+            
+            
         }
 
         protected override void OnOpen(QFramework.IUIData uiData)

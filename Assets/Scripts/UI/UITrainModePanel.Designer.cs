@@ -23,6 +23,15 @@ namespace oneGame
         
         public const string NAME = "UITrainModePanel";
         
+        [SerializeField()]
+        public UILevelItem UILevelItemTemplate;
+        
+        [SerializeField()]
+        public Button BtnBack;
+        
+        [SerializeField()]
+        public RectTransform Content;
+        
         private UITrainModePanelData mPrivateData = null;
         
         public UITrainModePanelData mData
@@ -40,6 +49,9 @@ namespace oneGame
         
         protected override void ClearUIComponents()
         {
+            UILevelItemTemplate = null;
+            BtnBack = null;
+            Content = null;
             mData = null;
         }
     }

@@ -35,6 +35,9 @@ namespace oneGame
         [SerializeField()]
         public Text TxtKeyboardHelp;
         
+        [SerializeField()]
+        public Button BtnPause;
+        
         private UIGamePanelData mPrivateData = null;
         
         public UIGamePanelData mData
@@ -56,6 +59,7 @@ namespace oneGame
             TxtLevelName = null;
             BtnKeyboardHelp = null;
             TxtKeyboardHelp = null;
+            BtnPause = null;
             mData = null;
         }
     }

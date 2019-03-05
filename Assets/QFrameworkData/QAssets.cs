@@ -14,7 +14,13 @@ namespace QAssetBundle
     public class Sounds
     {
         public const string BundleName = "sounds";
+        public const string CLICK = "click";
         public const string HIT = "hit";
+    }
+    public class Uiaboutpanel_prefab
+    {
+        public const string BundleName = "uiaboutpanel_prefab";
+        public const string UIABOUTPANEL = "uiaboutpanel";
     }
     public class Uigameoverpanel_prefab
     {
@@ -35,5 +41,15 @@ namespace QAssetBundle
     {
         public const string BundleName = "uihomepanel_prefab";
         public const string UIHOMEPANEL = "uihomepanel";
+    }
+    public class Uistorypanel_prefab
+    {
+        public const string BundleName = "uistorypanel_prefab";
+        public const string UISTORYPANEL = "uistorypanel";
+    }
+    public class Uitrainmodepanel_prefab
+    {
+        public const string BundleName = "uitrainmodepanel_prefab";
+        public const string UITRAINMODEPANEL = "uitrainmodepanel";
     }
 }

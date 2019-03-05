@@ -60,6 +60,9 @@ EditorBuildSettings:
     path: Assets/Scenes/GameWin.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Empty.unity
+    guid: 979564c944bb84bc8999310badf9cee8
+  - enabled: 1
     path: Assets/Scenes/LoadingScreen.unity
     guid: bc0cd10fbaea34ecc8585e11c097b8ce
   m_configObjects: {}

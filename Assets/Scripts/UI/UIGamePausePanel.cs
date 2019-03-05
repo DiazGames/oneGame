@@ -10,17 +10,8 @@
 
 namespace oneGame
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
-    using UnityEngine;
-    using UnityEngine.UI;
     using MoreMountains.Tools;
-    using MoreMountains.CorgiEngine;
     using QFramework;
-    using UniRx.Triggers;
-    using UniRx;
 
     public class UIGamePausePanelData : QFramework.UIPanelData
     {

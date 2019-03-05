@@ -10,14 +10,10 @@
 
 namespace oneGame
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
     using UnityEngine;
-    using UnityEngine.UI;
-    using QFramework;  
-    
+    using QFramework;
+    using UniRx;
+
     public class UIHomePanelData : QFramework.UIPanelData
     {
     }
@@ -45,15 +41,33 @@ namespace oneGame
             BtnStartGame.onClick.AddListener(() =>
             {
                 SendMsg(new AudioSoundMsg("click"));
-                UIMgr.OpenPanel<UIStoryPanel>();
 
-                CloseSelf();
+                if (GameData.CurLevelName == "Level1")
+                {
+                    CloseSelf();
+
+                    UIMgr.OpenPanel<UIStoryPanel>();
+                }
+                else
+                {
+                    this.DoTransition<UIGamePanel>(new FadeInOut(), uiData: new UIGamePanelData()
+                    {
+                        InitLevelName = GameData.CurLevelName
+                    });
+                }
+
             });
 
             BtnAbout.onClick.AddListener(() =>
             {
                 SendMsg(new AudioSoundMsg("click"));
                 UIMgr.OpenPanel<UIAboutPanel>(UILevel.PopUI);
+            });
+            BtnTrainMode.OnClickAsObservable().Subscribe(_ =>
+            {
+                CloseSelf();
+                SendMsg(new AudioSoundMsg("click"));
+                UIMgr.OpenPanel<UITrainModePanel>();
             });
         }
 

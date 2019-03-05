@@ -35,6 +35,9 @@ namespace oneGame
         [SerializeField()]
         public Button BtnAbout;
         
+        [SerializeField()]
+        public Button BtnTrainMode;
+        
         private UIHomePanelData mPrivateData = null;
         
         public UIHomePanelData mData
@@ -56,6 +59,7 @@ namespace oneGame
             BtnStartGame = null;
             TxtVersion = null;
             BtnAbout = null;
+            BtnTrainMode = null;
             mData = null;
         }
     }

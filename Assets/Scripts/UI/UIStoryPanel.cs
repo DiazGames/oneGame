@@ -10,12 +10,8 @@
 
 namespace oneGame
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
     using System.Linq;
     using UnityEngine;
-    using UnityEngine.UI;
     using DG.Tweening;
     using QFramework;
     using UniRx;
@@ -42,7 +38,11 @@ namespace oneGame
             TxtStoryContent.DOText(text, 10.0f)
                 .OnComplete(() =>
                 {
-                    OpenGamePanel();
+                    //OpenGamePanel();
+                    this.DoTransition<UIGamePanel>(new FadeInOut(), uiData: new UIGamePanelData()
+                    {
+                        InitLevelName = GameData.CurLevelName
+                    });
                 });
 
             // 点击屏幕显示所有文字
@@ -67,8 +67,11 @@ namespace oneGame
                 SendMsg(new AudioSoundMsg("click"));
                 TxtStoryContent.DOKill();
 
-                OpenGamePanel();
+                this.DoTransition<UIGamePanel>(new FadeInOut(), uiData: new UIGamePanelData()
+                {
+                    InitLevelName = GameData.CurLevelName
             });
+    });
         }
 
         protected override void OnOpen(QFramework.IUIData uiData)

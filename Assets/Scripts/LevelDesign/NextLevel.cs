@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Tools;
 using MoreMountains.CorgiEngine;
+using QFramework;
+using UniRx;
+using UnityEngine.SceneManagement;
 
 namespace oneGame
 {
@@ -28,17 +31,7 @@ namespace oneGame
         /// </summary>
         public virtual void GoToNextLevel()
         {
-            string nextLevelName = LevelConfig.GetNextLevelName();
-
-            if (LevelManager.Instance != null)
-            {
-                LevelManager.Instance.GotoLevel(nextLevelName);
-            }
-            else
-            {
-                LoadingSceneManager.LoadScene(nextLevelName);
-            }
+            GameModeLogic.LevelFinish();
         }
-
     }
 }
