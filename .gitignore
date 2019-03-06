@@ -35,4 +35,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-Assets/CorgiEngine/
+/Assets/CorgiEngine/
+/AssetBundles/OSX/
+/Assets/StreamingAsset/
