@@ -59,10 +59,21 @@ namespace oneGame
                 UILevelItemTemplate.Instantiate()
                 .Parent(Content)
                 .LocalIdentity()
-                .transform.Show()
-                .GetComponentInChildren<Text>()
-                .text = levelName;
+                .ApplySelfTo(self =>
+                {
+                    self.Init(levelName);
+                    self.Show();
+                });
 
+            });
+
+            Observable.NextFrame().Subscribe(_ =>
+            {
+                var preferredHeight = Content.GetComponent<GridLayoutGroup>().preferredHeight;
+                if (preferredHeight > 560)
+                {
+                    Content.GetComponent<ContentSizeFitter>().Enable();
+                }
             });
         }
         

@@ -10,9 +10,11 @@ namespace oneGame
 {
 	public partial class UILevelItem
 	{
+		[SerializeField] public Text TxtLevelName;
 
 		public void Clear()
 		{
+			TxtLevelName = null;
 		}
 
 		public override string ComponentName

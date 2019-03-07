@@ -13,22 +13,30 @@ namespace oneGame
 {
     public partial class UILevelItem : UIElement
     {
+        private string mLevelName;
+
         private void Awake()
         {
             GetComponent<Button>()
                 .OnClickAsObservable()
                 .Subscribe(_ =>
                 {
+                    SendMsg(new AudioSoundMsg("click"));
                     Log.I(GetComponentInChildren<Text>().text);
                     UIMgr.GetPanel<UITrainModePanel>().DoTransition<UIGamePanel>(new FadeInOut(),
                     uiData: new UIGamePanelData
                     {
-                        InitLevelName = GetComponentInChildren<Text>().text,
+                        InitLevelName = mLevelName,
                         Mode = GameMode.ModeTrain
-
                     });
                 });
 
+        }
+
+        public void Init(string levelName)
+        {
+            mLevelName = levelName;
+            TxtLevelName.text = levelName;
         }
 
         protected override void OnBeforeDestroy()

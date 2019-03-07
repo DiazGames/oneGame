@@ -31,6 +31,7 @@ namespace oneGame
         /// </summary>
         public virtual void GoToNextLevel()
         {
+            AudioManager.Instance.SendMsg(new AudioSoundMsg("pass_level"));
             GameModeLogic.LevelFinish();
         }
     }

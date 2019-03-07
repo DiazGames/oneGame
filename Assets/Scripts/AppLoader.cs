@@ -27,7 +27,7 @@ namespace oneGame
 
     }
 
-    public class GameData
+    public static class GameData
     {
         public static int DeathCountMin
         {
