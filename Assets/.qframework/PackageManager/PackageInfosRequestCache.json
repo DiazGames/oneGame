@@ -2277,7 +2277,7 @@
       "Type": 1,
       "AccessRight": 0,
       "VersionNumber": 2,
-      "Installed": false
+      "Installed": true
     },
     {
       "Name": "PostFXScreenRaindropShader",
@@ -2486,7 +2486,7 @@
       "Type": 1,
       "AccessRight": 0,
       "VersionNumber": 3,
-      "Installed": false
+      "Installed": true
     },
     {
       "Name": "ScriptKit",
