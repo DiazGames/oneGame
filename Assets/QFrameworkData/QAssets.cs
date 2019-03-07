@@ -16,6 +16,7 @@ namespace QAssetBundle
         public const string BundleName = "sounds";
         public const string CLICK = "click";
         public const string HIT = "hit";
+        public const string PASS_LEVEL = "pass_level";
     }
     public class Uiaboutpanel_prefab
     {

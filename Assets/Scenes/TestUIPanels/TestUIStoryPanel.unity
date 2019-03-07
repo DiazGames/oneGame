@@ -356,12 +356,12 @@ Prefab:
     - target: {fileID: 114574186442532806, guid: c70aac0028afd42eabc9e0c55824c824,
         type: 2}
       propertyPath: m_ReferenceResolution.x
-      value: 1024
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 114574186442532806, guid: c70aac0028afd42eabc9e0c55824c824,
         type: 2}
       propertyPath: m_ReferenceResolution.y
-      value: 768
+      value: 1080
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c70aac0028afd42eabc9e0c55824c824, type: 2}

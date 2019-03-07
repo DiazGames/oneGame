@@ -23,7 +23,17 @@ namespace oneGame
         /// <summary>
         /// 死亡次数
         /// </summary>
-        public int DeathCount;
+        public int DeathCount
+        {
+            get
+            {
+                return GameData.CurDeathCount;
+            }
+            set
+            {
+                GameData.CurDeathCount = value;
+            }
+        }
 
         /// <summary>
         /// 打开 GamePanel 的初始关卡
@@ -51,6 +61,8 @@ namespace oneGame
 
             TxtKeyboardHelp.Hide();
 
+            // 更新UI
+            TxtDeathCount.text = string.Format("Death Count : {0}", mData.DeathCount);
         }
 
         public void OnMMEvent(CorgiEngineEvent eventType)
@@ -90,10 +102,7 @@ namespace oneGame
             if (scene.name == "GameWin")
             {
                 CloseSelf();
-                UIMgr.OpenPanel<UIGameOverPanel>(new UIGameOverPanelData()
-                {
-                    DeathCountCurrent = mData.DeathCount
-                });
+                UIMgr.OpenPanel<UIGameOverPanel>(new UIGameOverPanelData());
             }
             else if (scene.name.StartsWith("Level"))
             {

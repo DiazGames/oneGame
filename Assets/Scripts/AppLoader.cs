@@ -64,6 +64,18 @@ namespace oneGame
                 PlayerPrefs.SetString("CUR_LEVEL_NAME", value);
             }
         }
+
+        public static int CurDeathCount
+        {
+            get
+            {
+                return PlayerPrefs.GetInt("CUR_DEATH_COUNT", 0);
+            }
+            set
+            {
+                PlayerPrefs.SetInt("CUR_DEATH_COUNT", value);
+            }
+        }
     }
 
     public static class LevelConfig
@@ -108,7 +120,14 @@ namespace oneGame
             curLevelIndex++;
 
             string nextLevelName = mLevelNamesOrder[curLevelIndex];
-            GameData.CurLevelName = curLevelIndex == mLevelNamesOrder.Count - 1 ? mLevelNamesOrder[0] : nextLevelName;
+            if (curLevelIndex == mLevelNamesOrder.Count - 1)
+            {
+                GameData.CurLevelName = mLevelNamesOrder[0];
+            }
+            else
+            {
+                GameData.CurLevelName = nextLevelName;
+            }
 
             return nextLevelName;
         }

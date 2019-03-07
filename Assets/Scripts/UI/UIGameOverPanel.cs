@@ -14,7 +14,17 @@ namespace oneGame
 
     public class UIGameOverPanelData : QFramework.UIPanelData
     {
-        public int DeathCountCurrent = 10;
+        public int DeathCountCurrent
+        {
+            get
+            {
+                return GameData.CurDeathCount;
+            }
+            set
+            {
+                GameData.CurDeathCount = value;
+            }
+        }
     }
     
     public partial class UIGameOverPanel : QFramework.UIPanel
@@ -28,6 +38,8 @@ namespace oneGame
 
             TxtDeathCountCurrent.text = string.Format("Death Count : {0}", mData.DeathCountCurrent);
             TxtDeathCountMin.text = string.Format("Death Count Record : {0}", GameData.DeathCountMin);
+
+            mData.DeathCountCurrent = 0;
 
         }
 
