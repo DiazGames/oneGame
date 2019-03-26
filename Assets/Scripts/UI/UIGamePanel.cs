@@ -17,6 +17,7 @@ namespace oneGame
     using DG.Tweening;
     using UnityEngine.UI;
     using UnityEngine;
+    using UniRx;
 
     public class UIGamePanelData : QFramework.UIPanelData
     {
@@ -130,17 +131,17 @@ namespace oneGame
 
         protected override void RegisterUIEvent()
         {
-            BtnKeyboardHelp.onClick.AddListener(() =>
+            BtnKeyboardHelp.OnClickAsObservable().Subscribe(_ =>
             {
                 SendMsg(new AudioSoundMsg("click"));
                 ShowTxtKeyboardHelp();
             });
-            BtnPause.onClick.AddListener(() =>
+
+            BtnPause.OnClickAsObservable().Subscribe(_ =>
             {
                 CorgiEngineEvent.Trigger(CorgiEngineEventTypes.Pause);
             });
-            
-            
+
         }
 
         protected override void OnOpen(QFramework.IUIData uiData)

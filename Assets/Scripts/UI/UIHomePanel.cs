@@ -38,7 +38,7 @@ namespace oneGame
 
         protected override void RegisterUIEvent()
         {
-            BtnStartGame.onClick.AddListener(() =>
+            BtnStartGame.OnClickAsObservable().Subscribe(_ =>
             {
                 SendMsg(new AudioSoundMsg("click"));
 
@@ -58,11 +58,12 @@ namespace oneGame
 
             });
 
-            BtnAbout.onClick.AddListener(() =>
+            BtnAbout.OnClickAsObservable().Subscribe(_ =>
             {
                 SendMsg(new AudioSoundMsg("click"));
                 UIMgr.OpenPanel<UIAboutPanel>(UILevel.PopUI);
             });
+
             BtnTrainMode.OnClickAsObservable().Subscribe(_ =>
             {
                 CloseSelf();

@@ -62,7 +62,7 @@ namespace oneGame
 
         protected override void RegisterUIEvent()
         {
-            BtnSkip.onClick.AddListener(() =>
+            BtnSkip.OnClickAsObservable().Subscribe(_ =>
             {
                 SendMsg(new AudioSoundMsg("click"));
                 TxtStoryContent.DOKill();
@@ -70,8 +70,8 @@ namespace oneGame
                 this.DoTransition<UIGamePanel>(new FadeInOut(), uiData: new UIGamePanelData()
                 {
                     InitLevelName = GameData.CurLevelName
+                });
             });
-    });
         }
 
         protected override void OnOpen(QFramework.IUIData uiData)

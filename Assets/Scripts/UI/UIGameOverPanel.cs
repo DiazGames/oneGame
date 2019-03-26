@@ -11,6 +11,7 @@
 namespace oneGame
 {
     using QFramework;
+    using UniRx;
 
     public class UIGameOverPanelData : QFramework.UIPanelData
     {
@@ -49,7 +50,7 @@ namespace oneGame
 
         protected override void RegisterUIEvent()
         {
-            BtnBackHome.onClick.AddListener(() =>
+            BtnBackHome.OnClickAsObservable().Subscribe(_ =>
             {
                 SendMsg(new AudioSoundMsg("click"));
                 CloseSelf();
