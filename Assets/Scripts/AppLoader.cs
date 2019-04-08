@@ -65,6 +65,18 @@ namespace oneGame
             }
         }
 
+        public static string UnLockLevelName
+        {
+            get
+            {
+                return PlayerPrefs.GetString("UN_LOCK_LEVEL_NAME", "Level1");
+            }
+            set
+            {
+                PlayerPrefs.SetString("UN_LOCK_LEVEL_NAME", value);
+            }
+        }
+
         public static int CurDeathCount
         {
             get
@@ -127,6 +139,11 @@ namespace oneGame
             else
             {
                 GameData.CurLevelName = nextLevelName;
+                if (curLevelIndex == mLevelNamesOrder.Count -1)
+                {
+                    GameData.UnLockLevelName = mLevelNamesOrder[mLevelNamesOrder.Count - 1];
+                }
+                GameData.UnLockLevelName = nextLevelName;
             }
 
             return nextLevelName;

@@ -29,7 +29,6 @@ namespace oneGame
             GameData.DeathCountMin == int.MaxValue ? "None" : GameData.DeathCountMin.ToString());
 
             TxtVersion.text = "v" + Application.version;
-
         }
 
         protected override void ProcessMsg(int eventId, QFramework.QMsg msg)
@@ -45,7 +44,6 @@ namespace oneGame
                 if (GameData.CurLevelName == "Level1")
                 {
                     CloseSelf();
-
                     UIMgr.OpenPanel<UIStoryPanel>();
                 }
                 else
@@ -55,7 +53,6 @@ namespace oneGame
                         InitLevelName = GameData.CurLevelName
                     });
                 }
-
             });
 
             BtnAbout.OnClickAsObservable().Subscribe(_ =>

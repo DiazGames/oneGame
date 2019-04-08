@@ -22,7 +22,7 @@ namespace oneGame
         {
             get
             {
-                int curLevelIndex = LevelConfig.CurLevelIndex(GameData.CurLevelName);
+                int curLevelIndex = LevelConfig.CurLevelIndex(GameData.UnLockLevelName);
 
                 List<string> unlockLevelNames = LevelConfig.LevelNamesOrder.GetRange(0, curLevelIndex + 1);
 

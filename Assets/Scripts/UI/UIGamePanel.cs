@@ -48,7 +48,6 @@ namespace oneGame
 
     public partial class UIGamePanel : QFramework.UIPanel, MMEventListener<CorgiEngineEvent>
     {
-
         protected override void OnInit(QFramework.IUIData uiData)
         {
             mData = uiData as UIGamePanelData ?? new UIGamePanelData();
@@ -81,19 +80,15 @@ namespace oneGame
                 var pausePanel = UIMgr.GetPanel<UIGamePausePanel>();
                 if(pausePanel)
                 {
-                    //BtnPause.image.sprite = Resources.Load<Sprite>("Art/Images/btn_pause");
                     UIMgr.ClosePanel<UIGamePausePanel>();
                 }
                 else
                 {
-                    //BtnPause.image.sprite = Resources.Load<Sprite>("Art/Images/btn_restart");
                     UIMgr.OpenPanel<UIGamePausePanel>(UILevel.PopUI);
                 }
-
             }
             else if (eventType.EventType == CorgiEngineEventTypes.UnPause)
             {
-                //BtnPause.image.sprite = Resources.Load<Sprite>("Art/Images/btn_pause");
                 UIMgr.ClosePanel<UIGamePausePanel>();
             }
         }
